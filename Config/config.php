@@ -18,6 +18,9 @@ return array(
             ),
         ),
         'events' => array(
+            'mautic.extendedplugin.emailbundle.subscriber' => array(
+                'class' => 'MauticPlugin\MauticExtendedPluginBundle\EventListener\EmailSubscriber'
+            ),
             'mautic.extendedplugin.reportbundle.subscriber' => array(
                 'class' => 'MauticPlugin\MauticExtendedPluginBundle\EventListener\ReportSubscriber'
             ),
