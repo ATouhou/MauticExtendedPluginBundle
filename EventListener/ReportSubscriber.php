@@ -45,15 +45,15 @@ class ReportSubscriber extends CommonSubscriber {
                 $pageRedirects_prefix = 'pr.';
                 $columns = array(
                     $pageRedirects_prefix . 'url' => array(
-                        'label' => 'mautic.email.url',
+                        'label' => 'mautic.extendedplugin.email.url',
                         'type' => 'string'
                     ),
                     $pageRedirects_prefix . 'hits' => array(
-                        'label' => 'mautic.email.hits',
+                        'label' => 'mautic.extendedplugin.email.hits',
                         'type' => 'int'
                     ),
                     $pageRedirects_prefix . 'unique_hits' => array(
-                        'label' => 'mautic.email.unique_hits',
+                        'label' => 'mautic.extendedplugin.email.unique.hits',
                         'type' => 'int'
                     ),
                     $prefix . 'subject' => array(
