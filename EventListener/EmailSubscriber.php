@@ -46,7 +46,6 @@ class EmailSubscriber extends CommonSubscriber {
         // Search and replace tokens
         $content = str_replace('{extendedplugin}', 'world!', $content);
 
-
         // Set updated content
         $event->setContent($content);
     }
