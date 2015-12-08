@@ -31,7 +31,7 @@ class EmailSubscriber extends CommonSubscriber {
     public function onEmailBuild(EmailBuilderEvent $event) {
         // Add email tokens
         $content = $this->templating->render('MauticExtendedPluginBundle:SubscribedEvents\EmailToken:token.html.php');
-        $event->addTokenSection('extendedplugin.token', 'plugin.extendedplugin.header', $content);
+        $event->addTokenSection('extendedplugin.token', 'mautic.extendedplugin.email.token.header', $content);
     }
 
     /**
