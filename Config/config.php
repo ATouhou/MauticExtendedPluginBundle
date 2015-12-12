@@ -16,6 +16,11 @@ return array(
                 'class' => 'MauticPlugin\MauticExtendedPluginBundle\Form\Type\FormFieldTextType',
                 'alias' => 'editor_advanced'
             ),
+            'mautic.form.type.submitaction_re_add' => array(
+                'class' => 'MauticPlugin\MauticExtendedPluginBundle\Form\Type\FormSubmitActioReAddType',
+                'arguments' => 'mautic.factory',
+                'alias' => 'submitaction_re_add'
+            )
         ),
         'events' => array(
             'mautic.extendedplugin.emailbundle.subscriber' => array(

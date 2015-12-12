@@ -36,6 +36,18 @@ class FormSubscriber extends CommonSubscriber {
      * @param FormBuilderEvent $event
      */
     public function onFormBuilder(Events\FormBuilderEvent $event) {
+
+        // Register a form submit actions
+        $event->addSubmitAction(
+            'mautic.extendedplugin.re.add', array(
+                'group' => 'mautic.lead.lead.submitaction',
+                'label' => 'mautic.extendedplugin.lead.remove.unsubscribe',
+                'description' => 'mautic.extendedplugin.lead.remove.unsubscribe.description',
+                'formType' => 'submitaction_re_add',
+                'callback' => '\MauticPlugin\MauticExtendedPluginBundle\Helper\FormSubmitHelper::onFormSubmit'
+          )
+        );
+
         // Register a custom form field
         $event->addFormField(
                 'MauticExtendedPluginBundle.editor_advanced', array(
