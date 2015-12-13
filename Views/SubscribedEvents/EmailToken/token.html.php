@@ -10,36 +10,25 @@
 use Mautic\CoreBundle\Helper\BuilderTokenHelper;
 ?>
 <div class="row ml-2 mr-2 mb-2">
-    <div class="col-sm-12">
-        <a style="background-color:#4cb939;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:35px;text-align:center;text-decoration:none;width:220px;-webkit-text-size-adjust:none;" href="#" data-toggle="tooltip" data-token='<p><!--[if mso]>
-           <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%url%" style="height:35px;v-text-anchor:middle;width:220px;" arcsize="10%" stroke="f" fillcolor="#4cb939">
-           <w:anchorlock/>
-           <center>
-           <![endif]-->
-           <a href="%url%"
-           style="background-color:#4cb939;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:35px;text-align:center;text-decoration:none;width:220px;-webkit-text-size-adjust:none;">%text%</a>
-           <!--[if mso]>
-           </center>
-           </v:roundrect>
-           <![endif]--></p>' data-drop="showBuilderLinkModal" class="" title="<?php echo $view['translator']->trans('mautic.email.token.unsubscribe_url.descr'); ?>">
-               <?php echo $view['translator']->trans('mautic.extendedplugin.email.token.button'); ?>
-        </a>
-    </div>
-</div>
-<div class="row ml-2 mr-2 mb-2">
-    <div class="col-sm-12">
-        <a style="background-color:#c70013;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:35px;text-align:center;text-decoration:none;width:220px;-webkit-text-size-adjust:none;" href="#" data-toggle="tooltip" data-token='<p><!--[if mso]>
-           <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%url%" style="height:35px;v-text-anchor:middle;width:220px;" arcsize="10%" stroke="f" fillcolor="#c70013">
-           <w:anchorlock/>
-           <center>
-           <![endif]-->
-           <a href="%url%"
-           style="background-color:#c70013;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:35px;text-align:center;text-decoration:none;width:220px;-webkit-text-size-adjust:none;">%text%</a>
-           <!--[if mso]>
-           </center>
-           </v:roundrect>
-           <![endif]--></p>' data-drop="showBuilderLinkModal" class="" title="<?php echo $view['translator']->trans('mautic.email.token.unsubscribe_url.descr'); ?>">
-               <?php echo $view['translator']->trans('mautic.extendedplugin.email.token.button'); ?>
-        </a>
-    </div>
+    <?php
+    foreach ($colors as $color) {
+        ?>
+        <div class="col-sm-12" style="margin-bottom:5px">
+            <a style="background-color:<?php echo $color; ?>;border-radius:<?php echo $buttons_radius; ?>;color:<?php echo $buttons_font_color; ?>;display:inline-block;font-family:sans-serif;font-size:<?php echo $buttons_font_size; ?>;font-weight:bold;line-height:<?php echo $buttons_height; ?>;text-align:center;text-decoration:none;width:<?php echo $buttons_width; ?>;-webkit-text-size-adjust:none;" href="#" data-toggle="tooltip" data-token='<p><!--[if mso]>
+               <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%url%" style="height:<?php echo $buttons_height; ?>;v-text-anchor:middle;width:<?php echo $buttons_width; ?>;" arcsize="<?php echo ceil(((int) $buttons_radius / (int) $buttons_height) * 100); ?>" stroke="f" fillcolor="<?php echo $color; ?>">
+               <w:anchorlock/>
+               <center>
+               <![endif]-->
+               <a href="%url%"
+               style="background-color:<?php echo $color; ?>;border-radius:<?php echo $buttons_radius; ?>;color:<?php echo $buttons_font_color; ?>;display:inline-block;font-family:sans-serif;font-size:<?php echo $buttons_font_size; ?>;font-weight:bold;line-height:<?php echo $buttons_height; ?>;text-align:center;text-decoration:none;width:<?php echo $buttons_width; ?>;-webkit-text-size-adjust:none;">%text%</a>
+               <!--[if mso]>
+               </center>
+               </v:roundrect>
+               <![endif]--></p>' data-drop="showBuilderLinkModal" class="">
+                   <?php echo $buttons_text; ?>
+            </a>
+        </div>
+        <?php
+    }
+    ?>
 </div>

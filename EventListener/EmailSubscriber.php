@@ -29,8 +29,26 @@ class EmailSubscriber extends CommonSubscriber {
      * @param EmailBuilderEvent $event
      */
     public function onEmailBuild(EmailBuilderEvent $event) {
+
+        $buttons_active = $this->factory->getParameter('buttons_active');
+        if (!$buttons_active)
+            return;
+
+        $buttons_colors = $this->factory->getParameter('buttons_colors');
+        if (!$buttons_colors)
+            return;
+
+        $params = array();
+        $params['colors'] = explode(',', $buttons_colors);
+        $params['buttons_width'] = $this->factory->getParameter('buttons_width');
+        $params['buttons_height'] = $this->factory->getParameter('buttons_height');
+        $params['buttons_radius'] = $this->factory->getParameter('buttons_radius');
+        $params['buttons_font_color'] = $this->factory->getParameter('buttons_font_color');
+        $params['buttons_font_size'] = $this->factory->getParameter('buttons_font_size');
+        $params['buttons_text'] = $this->factory->getParameter('buttons_text');
+
         // Add email tokens
-        $content = $this->templating->render('MauticExtendedPluginBundle:SubscribedEvents\EmailToken:token.html.php');
+        $content = $this->templating->render('MauticExtendedPluginBundle:SubscribedEvents\EmailToken:token.html.php',$params);
         $event->addTokenSection('extendedplugin.token', 'mautic.extendedplugin.email.token.header', $content);
     }
 
